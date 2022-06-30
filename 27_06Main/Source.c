@@ -368,7 +368,7 @@ void randomB()
     printf("Your random number is %d", x);
 }
 
-int main(int argc, char* argv[])
+int main_old1(int argc, char* argv[])
 {
     randomB();
 
