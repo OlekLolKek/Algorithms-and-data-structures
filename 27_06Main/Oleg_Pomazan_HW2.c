@@ -154,7 +154,7 @@ void powerOddnessStart()
     printf("The result is %f", result);
 }
 
-int main()
+int main_old2()
 {
     powerOddnessStart();
     return 0;
