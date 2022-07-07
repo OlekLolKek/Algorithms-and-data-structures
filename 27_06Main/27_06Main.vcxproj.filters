@@ -24,5 +24,8 @@
     <ClCompile Include="Oleg_Pomazan_HW3.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Oleg_Pomazan_HW4.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
