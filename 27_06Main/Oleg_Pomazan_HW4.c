@@ -134,7 +134,7 @@ void sequenceStart()
     printSequence(m, n);
 }
 
-int main()
+int main_old4()
 {
     sequenceStart();
 
