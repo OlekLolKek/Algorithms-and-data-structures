@@ -258,7 +258,7 @@ stackCopyStart()
     displayStack(newStack);
 }
 
-int main()
+int main_old5()
 {
     stackCopyStart();
 
