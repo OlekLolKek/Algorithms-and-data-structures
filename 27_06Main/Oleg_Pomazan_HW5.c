@@ -19,7 +19,7 @@ struct Stack
     int maxSize;
 };
 
-struct Stack globalStack;
+struct Stack stack;
 
 int push(T value, struct Stack* stack)
 {
@@ -48,7 +48,7 @@ int push(T value, struct Stack* stack)
 
 char pop(struct Stack* stack)
 {
-    if (globalStack.size == 0)
+    if (stack->size == 0)
     {
         printf("The stack is empty.\n");
         return;
@@ -70,7 +70,7 @@ void decToBinStack(int number)
 {
     while (number > 0)
     {
-        push(number % 2 ? '1' : '0', &globalStack);
+        push(number % 2 ? '1' : '0', &stack);
         number /= 2;
     }
 }
@@ -90,16 +90,16 @@ void decToBinStackStart()
         temp = temp >> 1;
         i++;
     }
-    globalStack.maxSize = 100;
-    globalStack.head = NULL;
+    stack.maxSize = 100;
+    stack.head = NULL;
 
     decToBinStack(number);
 
     printf("The number in binary is: ");
 
-    while (globalStack.size != 0)
+    while (stack.size != 0)
     {
-        printf("%c", pop(&globalStack));
+        printf("%c", pop(&stack));
     }
 }
 
@@ -109,12 +109,12 @@ void decToBinStackStart()
 
 void memoryAllocationErrorStart()
 {
-    globalStack.size = 2147483647;
+    stack.size = 2147483647;
     int result = 0;
 
     while (result != -1)
     {
-        result = push('1', &globalStack);
+        result = push('1', &stack);
     }
 }
 
@@ -132,20 +132,20 @@ int checkBraceSequence(char braces[BRACES_LENGTH])
     {
         if (braces[i] == '(' || braces[i] == '[' || braces[i] == '{')
         {
-            push(braces[i], &globalStack);
+            push(braces[i], &stack);
         }
         else
         {
             if (braces[i] == ')')
-                if (pop(&globalStack) != '(')
+                if (pop(&stack) != '(')
                     return -1;
 
             if (braces[i] == ']')
-                if (pop(&globalStack) != '[')
+                if (pop(&stack) != '[')
                     return -1;
 
             if (braces[i] == '}')
-                if (pop(&globalStack) != '{')
+                if (pop(&stack) != '{')
                     return -1;
         }
         ++i;
@@ -156,8 +156,8 @@ int checkBraceSequence(char braces[BRACES_LENGTH])
 
 void bracesStart()
 {
-    globalStack.maxSize = BRACES_LENGTH;
-    globalStack.head = NULL;
+    stack.maxSize = BRACES_LENGTH;
+    stack.head = NULL;
     char braces[BRACES_LENGTH] = "";
     int number;
 
@@ -238,20 +238,20 @@ struct Stack* copyStack(struct Stack original)
 
 stackCopyStart()
 {
-    globalStack.maxSize = 100;
-    globalStack.head = NULL;
+    stack.maxSize = 100;
+    stack.head = NULL;
 
-    push('a', &globalStack);
-    push('b', &globalStack);
-    push('c', &globalStack);
-    push('d', &globalStack);
-    push('e', &globalStack);
+    push('a', &stack);
+    push('b', &stack);
+    push('c', &stack);
+    push('d', &stack);
+    push('e', &stack);
 
     printf("Original stack: ");
 
-    displayStack(&globalStack);
+    displayStack(&stack);
 
-    struct Stack* newStack = copyStack(globalStack);
+    struct Stack* newStack = copyStack(stack);
 
     printf("\nCopied stack: ");
 

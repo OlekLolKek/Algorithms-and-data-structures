@@ -238,7 +238,7 @@ void treeStart()
     }
 }
 
-int main()
+int main_old6()
 {
     treeStart();
 
