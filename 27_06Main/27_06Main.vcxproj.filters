@@ -36,5 +36,8 @@
     <ClCompile Include="Oleg_Pomazan_HW7.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Oleg_Pomazan_HW8.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
